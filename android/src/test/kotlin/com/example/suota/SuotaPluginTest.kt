@@ -16,7 +16,7 @@ import org.mockito.Mockito
 internal class SuotaPluginTest {
   @Test
   fun onMethodCall_getPlatformVersion_returnsExpectedValue() {
-    val plugin = SuotaPlugin()
+    val plugin = RenesasSuotaPlugin()
 
     val call = MethodCall("getPlatformVersion", null)
     val mockResult: MethodChannel.Result = Mockito.mock(MethodChannel.Result::class.java)

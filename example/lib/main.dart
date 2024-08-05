@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:suota/suota.dart';
+import 'package:renesas_suota/suota.dart';
 
 void main() {
   runApp(const MyApp());

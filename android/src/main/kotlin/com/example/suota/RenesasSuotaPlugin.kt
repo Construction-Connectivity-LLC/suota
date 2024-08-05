@@ -1,4 +1,4 @@
-package com.example.renesas_suota
+package com.example.suota
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
@@ -25,10 +25,9 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
 /** RenesasSuotaPlugin */
-class SuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class RenesasSuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -59,7 +58,7 @@ class SuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     )
   }
 
-  override fun onMethodCall(call: MethodCall, result: Result) {
+  override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else if (call.method == "installUpdate") {
@@ -69,7 +68,7 @@ class SuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
   }
 
-  private fun installUpdate(call: MethodCall, result: Result) {
+  private fun installUpdate(call: MethodCall, result: MethodChannel.Result) {
     val path = call.argument<String>("path")
     val fileName = call.argument<String>("fileName")
     val remoteId = call.argument<String>("remoteId")
