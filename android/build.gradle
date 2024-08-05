@@ -50,7 +50,7 @@ android {
     }
 
     dependencies {
-        implementation fileTree(dir: 'libs', include: ['*.aar'])
+        compileOnly files('libs/suota.aar')
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
     }
