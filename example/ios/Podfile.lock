@@ -2,26 +2,26 @@ PODS:
   - Flutter (1.0.0)
   - integration_test (0.0.1):
     - Flutter
-  - suota (0.0.1):
+  - renesas_suota (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
-  - suota (from `.symlinks/plugins/suota/ios`)
+  - renesas_suota (from `.symlinks/plugins/renesas_suota/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
-  suota:
-    :path: ".symlinks/plugins/suota/ios"
+  renesas_suota:
+    :path: ".symlinks/plugins/renesas_suota/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  integration_test: 13825b8a9334a850581300559b8839134b124670
-  suota: bf0ca5d0f154d6e391df79032b311b58c699a4b7
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  renesas_suota: 4126a3c183e8db184cef74ebdbaf69cc55e8a519
 
 PODFILE CHECKSUM: 6e700dec67e6deac9b1c69bb14c49a2217a12d15
 

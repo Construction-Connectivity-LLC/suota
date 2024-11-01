@@ -56,15 +56,20 @@ class RenesasSuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
       }
     )
+    channel.setMethodCallHandler(this)
   }
 
   override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else if (call.method == "installUpdate") {
-      installUpdate(call, result)
-    } else {
-      result.notImplemented()
+    when (call.method) {
+        "getPlatformVersion" -> {
+          result.success("Android ${android.os.Build.VERSION.RELEASE}")
+        }
+        "installUpdate" -> {
+          installUpdate(call, result)
+        }
+        else -> {
+          result.notImplemented()
+        }
     }
   }
 
@@ -86,7 +91,7 @@ class RenesasSuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
       override fun pendingRebootDialog(rebootDialog: SupportCustomDialogFragment?) {
         if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
-          rebootDialog?.showDialog((activity as FragmentActivity).supportFragmentManager);
+          rebootDialog?.showDialog((activity as FragmentActivity).supportFragmentManager)
         } else {
 //                    suotaActivity.setPendingRebootDialog(rebootDialog);
         }
@@ -134,11 +139,11 @@ class RenesasSuotaPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activity = binding.activity as FlutterFragmentActivity;
+    println("onAttachedToActivity")
+    activity = binding.activity as FlutterFragmentActivity
     lifecycle = FlutterLifecycleAdapter.getActivityLifecycle(binding);
     val fragmentManager: FragmentManager = activity.supportFragmentManager
     println("fragmentManager: $fragmentManager")
-    channel.setMethodCallHandler(this)
   }
 
   override fun onDetachedFromActivityForConfigChanges() {
